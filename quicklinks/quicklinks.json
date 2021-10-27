@@ -1,0 +1,25 @@
+{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "protocol": {
+      "type": "http",
+      "checks": [
+      ]
+    },
+    "links": [
+      {
+        "name": "jupyter",
+        "label": "JUPYTER",
+        "component_name": "JUPYTER_SERVICE",
+        "url": "%@://%@:%@",
+        "port": {
+          "http_property": "server_port",
+          "http_default_port": "8888",
+          "regex": "^(\\d+)$",
+          "site": "jupyter-config"
+        }
+      }
+    ]
+  }
+}

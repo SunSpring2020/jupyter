@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <!-- 服务名称 -->
+            <name>JUPYTER</name>
+            <!-- ambari web展示服务名称 -->
+            <displayName>Jupyter</displayName>
+            <!-- ambari web展示服务介绍 -->
+            <comment>
+                Project Jupyter exists to develop open-source software, open-standards, and services for interactive
+                computing across dozens of programming languages.
+            </comment>
+            <!-- ambari web展示服务版本号 -->
+            <version>5.7.13</version>
+            <!-- 服务包含组件 -->
+            <components>
+                <component>
+                    <!-- 组件名称 -->
+                    <name>JUPYTER_SERVICE</name>
+                    <!-- ambari web展示组件名称 -->
+                    <displayName>Jupyter Service</displayName>
+                    <!-- 组件类型-MASTER，SLAVE，CLIENT -->
+                    <category>MASTER</category>
+                    <!-- 组件安装机器数 -->
+                    <cardinality>1</cardinality>
+                    <!-- 用于服务监控指标 -->
+                    <timelineAppid>tdengine</timelineAppid>
+                    <!-- 标准命令 -->
+                    <commandScript>
+                        <script>scripts/master.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>1800</timeout>
+                    </commandScript>
+                </component>
+            </components>
+            <!-- 操作系统 -->
+            <osSpecifics>
+                <osFamily>any</osFamily>
+            </osSpecifics>
+            <!-- 配置文件修改重启 -->
+            <configuration-dependencies>
+                <!-- 配置文件，默认为configuration包下的xml文件 -->
+                <config-type>jupyter-config</config-type>
+            </configuration-dependencies>
+            <!-- 配置修改后重启 -->
+            <restartRequiredAfterChange>true</restartRequiredAfterChange>
+            <!-- jupyter的快速链接 -->
+            <quickLinksConfigurations>
+                <quickLinksConfiguration>
+                    <fileName>quicklinks.json</fileName>
+                    <default>true</default>
+                </quickLinksConfiguration>
+            </quickLinksConfigurations>
+        </service>
+    </services>
+</metainfo>
